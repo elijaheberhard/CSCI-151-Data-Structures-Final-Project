@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BitcoinController">
+    <Text layoutX="750.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Price:" />
+    <Text fx:id="currentPriceText" layoutX="828.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="currentPriceText">
+        <font>
+          <Font size="17.0" />
+        </font>
+    </Text>
+    <Text layoutX="14.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentCash Balance:" />
+    <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Bitcoin Balance:" />
+    <Text layoutX="14.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Profit/Loss:" />
+    <Text fx:id="cashBalanceText" layoutX="150.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cashBalanceText" />
+    <Text fx:id="bitcoinBalanceText" layoutX="150.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bitcoinBalanceText" wrappingWidth="99.041015625" />
+    <Text fx:id="profitText" layoutX="150.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="profitText" />
+    <LineChart fx:id="lineChart" layoutX="600.0" layoutY="7.0" prefHeight="600.0" prefWidth="900.0" title="Bitcoin Price Over Time">
+        <xAxis>
+            <NumberAxis label="Days" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="USD Price" side="LEFT" />
+        </yAxis>
+    </LineChart>
+    <TextField fx:id="bitcoinTextField" layoutX="220.0" layoutY="413.0" prefHeight="33.0" prefWidth="189.0" promptText="Enter Bitcoin Amount:" />
+    <Button fx:id="buyButton" layoutX="220.0" layoutY="465.0" mnemonicParsing="false" onAction="#buyBitcoin" prefHeight="43.0" prefWidth="83.0" text="BUY" textFill="#1eee13" />
+    <Button fx:id="sellButton" layoutX="326.0" layoutY="465.0" mnemonicParsing="false" onAction="#sellBitcoin" prefHeight="43.0" prefWidth="83.0" text="SELL" textFill="#d70b0b" />
+    <Button fx:id="buyAllButton" layoutX="220.0" layoutY="520.0" mnemonicParsing="false" onAction="#buyAllBitcoin" prefHeight="43.0" prefWidth="83.0" text="BUY ALL" textFill="#1eee13" />
+    <Button fx:id="sellAllButton" layoutX="326.0" layoutY="520.0" mnemonicParsing="false" onAction="#sellAllBitcoin" prefHeight="43.0" prefWidth="83.0" text="SELL ALL" textFill="#d70b0b" />
+    <TableView fx:id="transactionLogTable" layoutX="1.0" layoutY="98.0" prefHeight="305.0" prefWidth="628.0">
+      <columns>
+          <TableColumn fx:id="transactionLogTableType" prefWidth="59.0" text="Type" />
+          <TableColumn fx:id="transactionLogTableAmount" prefWidth="128.0" text="Amount(BTC)" />
+          <TableColumn fx:id="transactionLogTableDate" prefWidth="136.0" text="Date" />
+          <TableColumn fx:id="transactionLogTableCashBalance" prefWidth="87.0" text="Cash Left" />
+          <TableColumn fx:id="transactionLogTableBitcoinBalance" prefWidth="115.0" text="# BTC Left" />
+         <TableColumn fx:id="transactionLogTableBitcoinPrice" prefWidth="115.0" text="BTC price" />
+      </columns>
+    </TableView>
+</AnchorPane>
