@@ -1,1 +1,1 @@
-# final-project
+# CSCI 151 Data Structures final project.
